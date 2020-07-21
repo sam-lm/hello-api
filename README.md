@@ -16,3 +16,9 @@ In another terminal...
 curl localhost:8080
 ```
 
+## Development
+
+Requirements:
+
+* [go](https://golang.org)
+
