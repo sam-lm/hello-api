@@ -21,7 +21,8 @@ jobs:
       env:
         DOCKER_USERNAME: codeform
         DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
-        TAG: ${{ steps.vars.outputs.tag }}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - name: Push the Docker image
+      env:
+        TAG: ${{ steps.vars.outputs.tag }}
       run: docker push $IMAGE_NAME:$TAG
