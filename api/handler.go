@@ -8,12 +8,12 @@ import (
 
 type response struct {
 	Msg     string `json:"message"`
-	Version int    `json:"version"`
+	Version string `json:"version"`
 }
 
 type Handler struct {
 	Msg     string
-	Version int
+	Version string
 }
 
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
