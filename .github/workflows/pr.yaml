@@ -1,0 +1,14 @@
+name: Build and Test
+on:
+  push:
+    branches:
+      - master
+  # Run builds for any PRs.
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run the test docker image
+      run: docker build --file test.Dockerfile -t test . && docker run test
