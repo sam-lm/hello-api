@@ -10,8 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Get tag
+      id: vars
+      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
     - name: Build the docker image
-      run: docker build . --file Dockerfile --tag $IMAGE_NAME:${{ github.event.release.tag_name }}
+      env:
+        TAG: ${{ steps.vars.outputs.tag }}
+      run: docker build . --file Dockerfile --tag $IMAGE_NAME:$TAG
       #    - name: Login to Dockerhub
       #      if: github.event_name == 'push'
       #      env:
