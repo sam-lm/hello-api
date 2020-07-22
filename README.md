@@ -10,7 +10,7 @@ Run the API.
 go run .
 ```
 
-In another terminal...
+In another terminal, make a request to the API.
 
 ```sh
 curl localhost:8080
