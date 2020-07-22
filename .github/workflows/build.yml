@@ -1,0 +1,28 @@
+name: Build and Push
+
+on:
+  push:
+    branches:
+      - master
+  # Run builds for any PRs.
+  pull_request:
+
+env:
+  IMAGE_NAME: codeformio/hello-api
+  MANIFEST_BRANCH: hello-api
+
+jobs:
+  build-push-image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag $IMAGE_NAME:${GITHUB_SHA::8}
+      #    - name: Login to Dockerhub
+      #      if: github.event_name == 'push'
+      #      env:
+      #        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      #        DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
+      #      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      #    - name: Push the Docker image
+      #      run: docker push $IMAGE_NAME:${GITHUB_SHA::8}
