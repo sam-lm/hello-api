@@ -1,8 +1,8 @@
 name: Build and Test
 on:
-  push:
-    branches:
-      - master
+  #  push:
+  #    branches:
+  #      - master
   # Run builds for any PRs.
   pull_request:
 jobs:
