@@ -19,5 +19,5 @@ func main() {
 
 	log.Printf("starting to listen on addr %v", cfg.Addr)
 
-	log.Fatal(http.ListenAndServe(cfg.Addr, &api.Handler{Msg: cfg.Message, Version: version}))
+	log.Fatal(http.ListenAndServe(cfg.Addr, &api.Handler{Message: cfg.Message, Version: version}))
 }
