@@ -8,7 +8,7 @@ import (
 	"github.com/kelseyhightower/envconfig"
 )
 
-const version = 1
+const version = "1.1.0"
 
 func main() {
 	var cfg struct {
@@ -19,5 +19,5 @@ func main() {
 
 	log.Printf("starting to listen on addr %v", cfg.Addr)
 
-	log.Fatal(http.ListenAndServe(cfg.Addr, &api.Handler{Msg: cfg.Message, Version: version}))
+	log.Fatal(http.ListenAndServe(cfg.Addr, &api.Handler{Message: cfg.Message, Version: version}))
 }

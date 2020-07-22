@@ -12,7 +12,7 @@ import (
 )
 
 func TestHandler(t *testing.T) {
-	ts := httptest.NewServer(&api.Handler{Msg: "Test"})
+	ts := httptest.NewServer(&api.Handler{Message: "Test"})
 	defer ts.Close()
 
 	res, err := http.Get(ts.URL)
