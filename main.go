@@ -19,6 +19,7 @@ func main() {
 
 	log.Printf("starting to listen on addr %v", cfg.Addr)
 	log.Println("Hi from Nick!")
+	log.Println("Hi from Rob!")
 
 	log.Fatal(http.ListenAndServe(cfg.Addr, &api.Handler{Message: cfg.Message, Version: version}))
 }
