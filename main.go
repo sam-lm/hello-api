@@ -21,5 +21,6 @@ func main() {
 	log.Println("Hi from Nick!")
 	log.Println("Hi from Rob!")
 
+	log.Println("Hi from Dan")
 	log.Fatal(http.ListenAndServe(cfg.Addr, &api.Handler{Message: cfg.Message, Version: version}))
 }
